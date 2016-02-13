@@ -32,10 +32,8 @@ If done correctly, then a message saying ``W E L C O M E  to  R O O T`` as follo
 
 And finally, to load the classes type
 
-``
+```
 .L [file_name.L]
-
 [class name]
-
-[function]
-``
+[2] [function]
+```
