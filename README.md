@@ -26,9 +26,8 @@ If a message such as
 root: can't figure out DISPLAY, set it manually
 ``
 
-comes up, type ``export DISPLAY=localhost:0.0`` and repeat the above steps.
-
-If done correctly, then a message saying ``W E L C O M E  to  R O O T`` as follows should appear in the bash shell
+comes up, type ``export DISPLAY=localhost:0.0`` and repeat the above steps.If done correctly, then a message saying ``W E L C O M E  to  R O O T`` 
+should appear in the bash shell.
 
 And finally, to load the classes type
 
