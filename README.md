@@ -28,25 +28,14 @@ root: can't figure out DISPLAY, set it manually
 
 comes up, type ``export DISPLAY=localhost:0.0`` and repeat the above steps.
 
-If done correctly, then a message as follows should appear in the bash shell
-
-``
- *******************************************
- *                                         *
- *         W E L C O M E  to  R O O T      *
- *                                         *
- *   Version   5.34/34    2 October 2015   *
- *                                         *
- *  You are welcome to visit our Web site  *
- *          http://root.cern.ch            *
- *                                         *
- *******************************************
-``
+If done correctly, then a message saying ``W E L C O M E  to  R O O T`` as follows should appear in the bash shell
 
 And finally, to load the classes type
 
 ``
 .L [file_name.L]
+
 [class name]
+
 [function]
 ``
