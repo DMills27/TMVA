@@ -14,11 +14,11 @@ On its completion it should contain the following implementations (though this m
 First ensure that ROOT is installed. If you haven't done this already, details of how to do this can be found [here](https://root.cern.ch/root/html534/guides/users-guide/InstallandBuild.html)
 . To run ROOT, open bash and type
 
-``
+```
 cd root
 source ./bin/thisroot.sh
 root
-``
+```
 
 If a message such as 
 
