@@ -32,7 +32,7 @@ should appear in the bash shell.
 And finally, to load the classes type
 
 ```
-.L [file_name.L]
+.L [file_name.c]
 [class name]
 [2] [function]
 ```
