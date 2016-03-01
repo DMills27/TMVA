@@ -8,6 +8,7 @@ On its completion it should contain the following implementations (though this m
 + [RANSAC](https://en.wikipedia.org/wiki/RANSAC)
 + [Mirror Descent](http://www.stats.ox.ac.uk/~lienart/blog_opti_mda.html)
 + [Expectation–Maximization (EM) algorithm](https://en.wikipedia.org/wiki/Expectation%E2%80%93maximization_algorithm)
++ [Baum-Welch Algorithm](https://en.wikipedia.org/wiki/Baum%E2%80%93Welch_algorithm)
 
 ---
 ##Loading the classes
@@ -26,7 +27,8 @@ If a message such as
 root: can't figure out DISPLAY, set it manually
 ``
 
-comes up, type ``export DISPLAY=localhost:0.0`` and repeat the above steps.If done correctly, then a message saying ``W E L C O M E  to  R O O T`` 
+comes up, type ``export DISPLAY=localhost:0.0`` and repeat the above steps.If done correctly, then a message saying 
+```W E L C O M E  to  R O O T``` 
 should appear in the bash shell.
 
 And finally, to load the classes type
