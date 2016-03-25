@@ -67,11 +67,10 @@ void Multi_ROC(TFile* file){
         gr1->SetLineColor(2);
         
         mg->Add(gr3);
-        
+        mg->Draw();
         return c1;
         
         c1->Print("ROC.png");
-        
         file.Close();
 
 }
