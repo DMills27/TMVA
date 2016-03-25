@@ -72,6 +72,6 @@ void Multi_ROC(TFile* file){
         
         c1->Print("ROC.png");
         
-        file1.Close();
+        file.Close();
 
 }
