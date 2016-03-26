@@ -7,7 +7,7 @@
 #include <vector>
 #include <iostream>
 
-//Computes 
+//Computes efficiencies
 void GetROC(float[] *sig, float[] *bac){
   
   int ndivisions = 40;
