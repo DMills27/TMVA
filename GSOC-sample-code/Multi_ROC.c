@@ -7,6 +7,52 @@
 #include <vector>
 #include <iostream>
 
+//Computes 
+void GetROC(float[] *sig, float[] *bac){
+  
+  int ndivisions = 40;
+  std::vector<Float_t> vec_epsilon_s(1);
+  vec_epsilon_s.push_back(0);
+  
+  std::vector<Float_t>  vec_epsilon_b(1);
+  vec_epsilon_b.push_back(0);
+  
+  Float_t epsilon_s = 0.0;
+  Float_t epsilon_b = 0.0;
+
+  for(Float_t i=-1.0;i<1.0;i+=(1.0/ndivisions))
+  {
+      Float_t acounter = 0.0;
+      Float_t bcounter = 0.0;
+      Float_t ccounter = 0.0;
+      Float_t dcounter = 0.0;
+      
+      for(UInt_t j=0;j<sig.size();j++)
+      {
+        if(sig[j] > i) acounter++;
+        else            bcounter++;
+	
+        if(bac[j] > i) ccounter++;
+        else            dcounter++;
+      }
+      
+      if(acounter != 0 || bcounter != 0)
+      {
+	epsilon_s = 1.0*bcounter/(acounter+bcounter);
+      }
+      vec_epsilon_s.push_back(epsilon_s);
+      
+      if(ccounter != 0 || dcounter != 0)
+      {
+	epsilon_b = 1.0*dcounter/(ccounter+dcounter);
+      }
+      vec_epsilon_b.push_back(epsilon_b);      
+  }
+  vec_epsilon_s.push_back(1.0);
+  vec_epsilon_b.push_back(1.0);
+  
+}
+
 void Multi_ROC(TFile* file){
     
     //Create vectors to store the Background values          
@@ -50,20 +96,26 @@ void Multi_ROC(TFile* file){
         TCanvas *c1 = new TCanvas("c1","ROC Curve",700,500);
         TMultiGraph *mg = new TMultiGraph();
         
+        //Compute efficiencies for first grap
+        GetROC(Var0Sig, Var0Bkg);
         //Create first ROC curve
-        TGraph *gr1 = new TGraph(nEntries1,Var0Bkg,Var0Sig); //signal:  y-axis; background: x-axis
+        TGraph *gr1 = new TGraph(nEntries1,vec_epsilon_b,vec_epsilon_s); //signal:  y-axis; background: x-axis
         gr1->SetLineColor(4);
         
         mg->Add(gr1);
         
+        //Compute efficiencies for second grap
+        GetROC(Var1Sig, Var1Bkg);
         //Create second ROC curve
-        TGraph *gr2 = new TGraph(nEntries1,Var1Bkg,Var1Sig); //signal:  y-axis; background: x-axis
+        TGraph *gr2 = new TGraph(nEntries1,vec_epsilon_b,vec_epsilon_s); //signal:  y-axis; background: x-axis
         gr1->SetLineColor(3);
         
         mg->Add(gr2);
         
+        //CCompute efficiencies for thirdgrap
+        GetROC(Var2Sig, Var2Bkg);
         //Create third ROC curve
-        TGraph *gr3 = new TGraph(nEntries1,Var2Bkg,Var2Sig); //signal:  y-axis; background: x-axis
+        TGraph *gr3 = new TGraph(nEntries1,vec_epsilon_b,vec_epsilon_s); //signal:  y-axis; background: x-axis
         gr1->SetLineColor(2);
         
         mg->Add(gr3);
