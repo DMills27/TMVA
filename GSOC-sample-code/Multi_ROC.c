@@ -96,7 +96,7 @@ void Multi_ROC(TFile* file){
         TCanvas *c1 = new TCanvas("c1","ROC Curve",700,500);
         TMultiGraph *mg = new TMultiGraph();
         
-        //Compute efficiencies for first grap
+        //Compute signal efficiencies and background rejection for first graph
         GetROC(Var0Sig, Var0Bkg);
         //Create first ROC curve
         TGraph *gr1 = new TGraph(nEntries1,vec_epsilon_b,vec_epsilon_s); //signal:  y-axis; background: x-axis
@@ -104,7 +104,7 @@ void Multi_ROC(TFile* file){
         
         mg->Add(gr1);
         
-        //Compute efficiencies for second grap
+        //Computes signal efficiencies and background rejection for second graph
         GetROC(Var1Sig, Var1Bkg);
         //Create second ROC curve
         TGraph *gr2 = new TGraph(nEntries1,vec_epsilon_b,vec_epsilon_s); //signal:  y-axis; background: x-axis
@@ -112,7 +112,7 @@ void Multi_ROC(TFile* file){
         
         mg->Add(gr2);
         
-        //CCompute efficiencies for thirdgrap
+        //Computes signal efficiencies and background rejection for third graph
         GetROC(Var2Sig, Var2Bkg);
         //Create third ROC curve
         TGraph *gr3 = new TGraph(nEntries1,vec_epsilon_b,vec_epsilon_s); //signal:  y-axis; background: x-axis
